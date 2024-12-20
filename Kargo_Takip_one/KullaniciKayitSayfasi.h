@@ -1,6 +1,5 @@
 #pragma once
 
-
 namespace KargoTakipone {
 
 	using namespace System;
@@ -11,14 +10,13 @@ namespace KargoTakipone {
 	using namespace System::Drawing;
 	using namespace System::Data::SqlClient;
 
-
 	/// <summary>
-	/// Summary for KullaniciKayiý
+	/// Summary for KullaniciKayitSayfasi
 	/// </summary>
-	public ref class KullaniciKayiý : public System::Windows::Forms::Form
+	public ref class KullaniciKayitSayfasi : public System::Windows::Forms::Form
 	{
 	public:
-		KullaniciKayiý(void)
+		KullaniciKayitSayfasi(void)
 		{
 			InitializeComponent();
 			//
@@ -30,7 +28,7 @@ namespace KargoTakipone {
 		/// <summary>
 		/// Clean up any resources being used.
 		/// </summary>
-		~KullaniciKayiý()
+		~KullaniciKayitSayfasi()
 		{
 			if (components)
 			{
@@ -38,13 +36,14 @@ namespace KargoTakipone {
 			}
 		}
 	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Button^ MusteriSayfasiButton;
+
+
 	private: System::Windows::Forms::Label^ MusteriSifreLabel;
 	private: System::Windows::Forms::TextBox^ MusteriKayitSifreTextBox;
 
 	private: System::Windows::Forms::Label^ MusteriKullaniciAdiLabel;
 	private: System::Windows::Forms::TextBox^ MusteriKayitKullaniciAdiTextBox;
-
-	private: System::Windows::Forms::Button^ MusteriKayitButton;
 	private: System::Windows::Forms::Button^ KullaniciGeri2Button;
 
 	protected:
@@ -63,11 +62,11 @@ namespace KargoTakipone {
 		void InitializeComponent(void)
 		{
 			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->MusteriSayfasiButton = (gcnew System::Windows::Forms::Button());
 			this->MusteriSifreLabel = (gcnew System::Windows::Forms::Label());
 			this->MusteriKayitSifreTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->MusteriKullaniciAdiLabel = (gcnew System::Windows::Forms::Label());
 			this->MusteriKayitKullaniciAdiTextBox = (gcnew System::Windows::Forms::TextBox());
-			this->MusteriKayitButton = (gcnew System::Windows::Forms::Button());
 			this->KullaniciGeri2Button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
@@ -81,6 +80,19 @@ namespace KargoTakipone {
 			this->label2->TabIndex = 15;
 			this->label2->Text = L"KULLANCI KAYIT";
 			// 
+			// MusteriSayfasiButton
+			// 
+			this->MusteriSayfasiButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->MusteriSayfasiButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.8F, System::Drawing::FontStyle::Bold));
+			this->MusteriSayfasiButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->MusteriSayfasiButton->Location = System::Drawing::Point(314, 404);
+			this->MusteriSayfasiButton->Name = L"MusteriSayfasiButton";
+			this->MusteriSayfasiButton->Size = System::Drawing::Size(306, 98);
+			this->MusteriSayfasiButton->TabIndex = 22;
+			this->MusteriSayfasiButton->Text = L"Kayýt";
+			this->MusteriSayfasiButton->UseVisualStyleBackColor = false;
+			this->MusteriSayfasiButton->Click += gcnew System::EventHandler(this, &KullaniciKayitSayfasi::MusteriGirisSayfasiButton_Click);
+			// 
 			// MusteriSifreLabel
 			// 
 			this->MusteriSifreLabel->AutoSize = true;
@@ -89,7 +101,7 @@ namespace KargoTakipone {
 			this->MusteriSifreLabel->Location = System::Drawing::Point(94, 293);
 			this->MusteriSifreLabel->Name = L"MusteriSifreLabel";
 			this->MusteriSifreLabel->Size = System::Drawing::Size(82, 29);
-			this->MusteriSifreLabel->TabIndex = 20;
+			this->MusteriSifreLabel->TabIndex = 21;
 			this->MusteriSifreLabel->Text = L"Þifre :";
 			// 
 			// MusteriKayitSifreTextBox
@@ -100,7 +112,7 @@ namespace KargoTakipone {
 			this->MusteriKayitSifreTextBox->Name = L"MusteriKayitSifreTextBox";
 			this->MusteriKayitSifreTextBox->PasswordChar = '*';
 			this->MusteriKayitSifreTextBox->Size = System::Drawing::Size(306, 30);
-			this->MusteriKayitSifreTextBox->TabIndex = 19;
+			this->MusteriKayitSifreTextBox->TabIndex = 20;
 			// 
 			// MusteriKullaniciAdiLabel
 			// 
@@ -110,7 +122,7 @@ namespace KargoTakipone {
 			this->MusteriKullaniciAdiLabel->Location = System::Drawing::Point(94, 185);
 			this->MusteriKullaniciAdiLabel->Name = L"MusteriKullaniciAdiLabel";
 			this->MusteriKullaniciAdiLabel->Size = System::Drawing::Size(172, 29);
-			this->MusteriKullaniciAdiLabel->TabIndex = 18;
+			this->MusteriKullaniciAdiLabel->TabIndex = 19;
 			this->MusteriKullaniciAdiLabel->Text = L"Kullanýcý Adý :";
 			// 
 			// MusteriKayitKullaniciAdiTextBox
@@ -120,20 +132,7 @@ namespace KargoTakipone {
 			this->MusteriKayitKullaniciAdiTextBox->Location = System::Drawing::Point(314, 185);
 			this->MusteriKayitKullaniciAdiTextBox->Name = L"MusteriKayitKullaniciAdiTextBox";
 			this->MusteriKayitKullaniciAdiTextBox->Size = System::Drawing::Size(306, 30);
-			this->MusteriKayitKullaniciAdiTextBox->TabIndex = 17;
-			// 
-			// MusteriKayitButton
-			// 
-			this->MusteriKayitButton->BackColor = System::Drawing::Color::DarkCyan;
-			this->MusteriKayitButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.8F, System::Drawing::FontStyle::Bold));
-			this->MusteriKayitButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->MusteriKayitButton->Location = System::Drawing::Point(314, 404);
-			this->MusteriKayitButton->Name = L"MusteriKayitButton";
-			this->MusteriKayitButton->Size = System::Drawing::Size(306, 98);
-			this->MusteriKayitButton->TabIndex = 21;
-			this->MusteriKayitButton->Text = L"Kayýt";
-			this->MusteriKayitButton->UseVisualStyleBackColor = false;
-			this->MusteriKayitButton->Click += gcnew System::EventHandler(this, &KullaniciKayiý::MusteriKayitButton_Click);
+			this->MusteriKayitKullaniciAdiTextBox->TabIndex = 18;
 			// 
 			// KullaniciGeri2Button
 			// 
@@ -144,44 +143,51 @@ namespace KargoTakipone {
 			this->KullaniciGeri2Button->Location = System::Drawing::Point(762, 404);
 			this->KullaniciGeri2Button->Name = L"KullaniciGeri2Button";
 			this->KullaniciGeri2Button->Size = System::Drawing::Size(140, 98);
-			this->KullaniciGeri2Button->TabIndex = 22;
+			this->KullaniciGeri2Button->TabIndex = 23;
 			this->KullaniciGeri2Button->Text = L"Geri";
 			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			this->KullaniciGeri2Button->Click += gcnew System::EventHandler(this, &KullaniciKayitSayfasi::KullaniciGeri2Button_Click);
 			// 
-			// KullaniciKayiý
+			// KullaniciKayitSayfasi
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(996, 534);
 			this->Controls->Add(this->KullaniciGeri2Button);
-			this->Controls->Add(this->MusteriKayitButton);
+			this->Controls->Add(this->MusteriSayfasiButton);
 			this->Controls->Add(this->MusteriSifreLabel);
 			this->Controls->Add(this->MusteriKayitSifreTextBox);
 			this->Controls->Add(this->MusteriKullaniciAdiLabel);
 			this->Controls->Add(this->MusteriKayitKullaniciAdiTextBox);
 			this->Controls->Add(this->label2);
-			this->Name = L"KullaniciKayiý";
-			this->Text = L"KullaniciKayiý";
+			this->Name = L"KullaniciKayitSayfasi";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->Text = L"KullaniciKayitSayfasi";
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
-	private: System::Void MusteriKayitButton_Click(System::Object^ sender, System::EventArgs^ e) {
-		String^ kullanici_Adi = this->MusteriKayitKullaniciAdiTextBox->Text;
-		String^ Sifre = this->MusteriKayitSifreTextBox->Text;
-
-
-		String^ connectionString = "Data Source=localhost;Initial Catalog=Kargo_Takip;Integrated Security=True";
-		SqlConnection con(connectionString);
-		con.Open();
-
-		String^ sqlQuery = "Insert into Kullanici_Giris_Bilgileri values ('" + this->MusteriKayitKullaniciAdiTextBox->Text + "','" + this->MusteriKayitSifreTextBox->Text + "')";
-		SqlCommand cmd(sqlQuery, % con);
-		cmd.ExecuteNonQuery();
-		con.Close();
-	
+	private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
 	}
+private: System::Void MusteriGirisSayfasiButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	String^ aciklama = this->MusteriKayitKullaniciAdiTextBox->Text;
+	String^ foto = this->MusteriKayitSifreTextBox->Text;
+
+
+	String^ connectionString = "Data Source=localhost;Initial Catalog=Kargo_Takip;Integrated Security=True";
+	SqlConnection con(connectionString);
+	con.Open();
+
+	String^ sqlQuery = "Insert into Kullanici_Giris_Bilgileri values ('" + this->MusteriKayitKullaniciAdiTextBox->Text + "','" + this->MusteriKayitSifreTextBox->Text + "')";
+	SqlCommand cmd(sqlQuery, % con);
+	cmd.ExecuteNonQuery();
+	con.Close();
+	this->MusteriKayitKullaniciAdiTextBox->Text = "";
+	this->MusteriKayitSifreTextBox->Text = "";
+	MessageBox::Show("Baþarýlý kayýt!");
+}
 };
 }

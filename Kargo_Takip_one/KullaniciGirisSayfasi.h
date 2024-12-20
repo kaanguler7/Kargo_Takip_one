@@ -1,6 +1,6 @@
 #pragma once
 #include "KullaniciSayfasi.h"
-#include "KullaniciKayiý.h"
+#include "KullaniciKayitSayfasi.h"
 
 
 
@@ -219,6 +219,9 @@ private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System:
 	this->Close();
 }
 private: System::Void KullaniciKayit_Click(System::Object^ sender, System::EventArgs^ e) {
+	KullaniciKayitSayfasi^ form31 = gcnew KullaniciKayitSayfasi();
+	form31->Show();
+	
 }
 };
 }

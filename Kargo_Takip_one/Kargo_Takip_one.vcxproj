@@ -126,7 +126,7 @@
     <ClCompile Include="AdminSayfasi.cpp" />
     <ClCompile Include="AnaSayfa.cpp" />
     <ClCompile Include="KullaniciGirisSayfasi.cpp" />
-    <ClCompile Include="KullaniciKayiı.cpp" />
+    <ClCompile Include="KullaniciKayitSayfasi.cpp" />
     <ClCompile Include="KullaniciSayfasi.cpp" />
     <ClCompile Include="SubeSorgulamaSayfasi.cpp" />
   </ItemGroup>
@@ -143,7 +143,7 @@
     <ClInclude Include="KullaniciGirisSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="KullaniciKayiı.h">
+    <ClInclude Include="KullaniciKayitSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="KullaniciSayfasi.h">
@@ -166,8 +166,8 @@
     <EmbeddedResource Include="KullaniciGirisSayfasi.resx">
       <DependentUpon>KullaniciGirisSayfasi.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="KullaniciKayiı.resx">
-      <DependentUpon>KullaniciKayiı.h</DependentUpon>
+    <EmbeddedResource Include="KullaniciKayitSayfasi.resx">
+      <DependentUpon>KullaniciKayitSayfasi.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KullaniciSayfasi.resx">
       <DependentUpon>KullaniciSayfasi.h</DependentUpon>

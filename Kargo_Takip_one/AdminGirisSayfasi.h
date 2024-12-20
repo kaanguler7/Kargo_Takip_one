@@ -79,6 +79,7 @@ namespace KargoTakipone {
 			this->AdminGeri2Button->TabIndex = 20;
 			this->AdminGeri2Button->Text = L"Geri";
 			this->AdminGeri2Button->UseVisualStyleBackColor = false;
+			this->AdminGeri2Button->Click += gcnew System::EventHandler(this, &AdminGirisSayfasi::AdminGeri2Button_Click);
 			// 
 			// AdminGirisSayfasi2Button
 			// 
@@ -160,6 +161,7 @@ namespace KargoTakipone {
 			this->Name = L"AdminGirisSayfasi";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AdminGirisSayfasi";
+			this->Load += gcnew System::EventHandler(this, &AdminGirisSayfasi::AdminGirisSayfasi_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -192,5 +194,9 @@ namespace KargoTakipone {
 			MessageBox::Show("baþarýsýz giriþ");
 		}
 	}
+private: System::Void AdminGirisSayfasi_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void AdminGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
