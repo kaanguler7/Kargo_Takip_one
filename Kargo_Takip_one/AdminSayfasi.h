@@ -34,6 +34,17 @@ namespace KargoTakipone {
 				delete components;
 			}
 		}
+	private: System::Windows::Forms::Button^ KullaniciGeri2Button;
+	protected:
+	private: System::Windows::Forms::Button^ KargoIptalButton;
+	private: System::Windows::Forms::Button^ RaporlamaButton;
+
+	private: System::Windows::Forms::Button^ MusteriYonetim;
+
+	private: System::Windows::Forms::Button^ KargoYonetimButton;
+
+	private: System::Windows::Forms::Button^ PersonelEkleCýkarButton;
+
 
 	private:
 		/// <summary>
@@ -48,7 +59,90 @@ namespace KargoTakipone {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->KullaniciGeri2Button = (gcnew System::Windows::Forms::Button());
+			this->KargoIptalButton = (gcnew System::Windows::Forms::Button());
+			this->RaporlamaButton = (gcnew System::Windows::Forms::Button());
+			this->MusteriYonetim = (gcnew System::Windows::Forms::Button());
+			this->KargoYonetimButton = (gcnew System::Windows::Forms::Button());
+			this->PersonelEkleCýkarButton = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
+			// 
+			// KullaniciGeri2Button
+			// 
+			this->KullaniciGeri2Button->BackColor = System::Drawing::Color::DarkCyan;
+			this->KullaniciGeri2Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KullaniciGeri2Button->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KullaniciGeri2Button->Location = System::Drawing::Point(692, 304);
+			this->KullaniciGeri2Button->Name = L"KullaniciGeri2Button";
+			this->KullaniciGeri2Button->Size = System::Drawing::Size(246, 149);
+			this->KullaniciGeri2Button->TabIndex = 29;
+			this->KullaniciGeri2Button->Text = L"Geri";
+			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			// 
+			// KargoIptalButton
+			// 
+			this->KargoIptalButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->KargoIptalButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KargoIptalButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KargoIptalButton->Location = System::Drawing::Point(373, 304);
+			this->KargoIptalButton->Name = L"KargoIptalButton";
+			this->KargoIptalButton->Size = System::Drawing::Size(245, 149);
+			this->KargoIptalButton->TabIndex = 28;
+			this->KargoIptalButton->UseVisualStyleBackColor = false;
+			// 
+			// RaporlamaButton
+			// 
+			this->RaporlamaButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->RaporlamaButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->RaporlamaButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->RaporlamaButton->Location = System::Drawing::Point(58, 304);
+			this->RaporlamaButton->Name = L"RaporlamaButton";
+			this->RaporlamaButton->Size = System::Drawing::Size(234, 149);
+			this->RaporlamaButton->TabIndex = 27;
+			this->RaporlamaButton->Text = L"Raporlama";
+			this->RaporlamaButton->UseVisualStyleBackColor = false;
+			// 
+			// MusteriYonetim
+			// 
+			this->MusteriYonetim->BackColor = System::Drawing::Color::DarkCyan;
+			this->MusteriYonetim->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->MusteriYonetim->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->MusteriYonetim->Location = System::Drawing::Point(692, 82);
+			this->MusteriYonetim->Name = L"MusteriYonetim";
+			this->MusteriYonetim->Size = System::Drawing::Size(246, 149);
+			this->MusteriYonetim->TabIndex = 26;
+			this->MusteriYonetim->Text = L"Müþteri Yönetimi";
+			this->MusteriYonetim->UseVisualStyleBackColor = false;
+			// 
+			// KargoYonetimButton
+			// 
+			this->KargoYonetimButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->KargoYonetimButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KargoYonetimButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KargoYonetimButton->Location = System::Drawing::Point(373, 82);
+			this->KargoYonetimButton->Name = L"KargoYonetimButton";
+			this->KargoYonetimButton->Size = System::Drawing::Size(245, 149);
+			this->KargoYonetimButton->TabIndex = 25;
+			this->KargoYonetimButton->Text = L"Kargo Yönetimi";
+			this->KargoYonetimButton->UseVisualStyleBackColor = false;
+			// 
+			// PersonelEkleCýkarButton
+			// 
+			this->PersonelEkleCýkarButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->PersonelEkleCýkarButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 22.2F, System::Drawing::FontStyle::Bold,
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
+			this->PersonelEkleCýkarButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->PersonelEkleCýkarButton->Location = System::Drawing::Point(58, 82);
+			this->PersonelEkleCýkarButton->Name = L"PersonelEkleCýkarButton";
+			this->PersonelEkleCýkarButton->Size = System::Drawing::Size(234, 149);
+			this->PersonelEkleCýkarButton->TabIndex = 24;
+			this->PersonelEkleCýkarButton->Text = L"Personel Ekle/Çýkar";
+			this->PersonelEkleCýkarButton->UseVisualStyleBackColor = false;
 			// 
 			// AdminSayfasi
 			// 
@@ -56,6 +150,12 @@ namespace KargoTakipone {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(996, 534);
+			this->Controls->Add(this->KullaniciGeri2Button);
+			this->Controls->Add(this->KargoIptalButton);
+			this->Controls->Add(this->RaporlamaButton);
+			this->Controls->Add(this->MusteriYonetim);
+			this->Controls->Add(this->KargoYonetimButton);
+			this->Controls->Add(this->PersonelEkleCýkarButton);
 			this->Name = L"AdminSayfasi";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AdminSayfasi";

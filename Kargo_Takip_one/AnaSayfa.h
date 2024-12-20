@@ -110,6 +110,7 @@ namespace KargoTakipone {
 			this->Name = L"AnaSayfa";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"AnaSayfa";
+			this->Load += gcnew System::EventHandler(this, &AnaSayfa::AnaSayfa_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -123,7 +124,9 @@ namespace KargoTakipone {
 	private: System::Void KullaniciGirisButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		KullaniciGirisSayfasi^ b = gcnew KullaniciGirisSayfasi();
 		b->Show();
-		this->Hide();
+		
 	}
+private: System::Void AnaSayfa_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

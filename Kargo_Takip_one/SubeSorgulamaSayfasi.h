@@ -38,6 +38,7 @@ namespace KargoTakipone {
 	private: System::Windows::Forms::TextBox^ SubeAdi;
 	private: System::Windows::Forms::TextBox^ SubeAdresi;
 	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ KullaniciGeri2Button;
 	protected:
 
 
@@ -57,6 +58,7 @@ namespace KargoTakipone {
 			this->SubeAdi = (gcnew System::Windows::Forms::TextBox());
 			this->SubeAdresi = (gcnew System::Windows::Forms::TextBox());
 			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->KullaniciGeri2Button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// SubeAdi
@@ -92,12 +94,27 @@ namespace KargoTakipone {
 			this->button1->UseVisualStyleBackColor = false;
 			this->button1->Click += gcnew System::EventHandler(this, &SubeSorgulamaSayfasi::button1_Click);
 			// 
+			// KullaniciGeri2Button
+			// 
+			this->KullaniciGeri2Button->BackColor = System::Drawing::Color::DarkCyan;
+			this->KullaniciGeri2Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KullaniciGeri2Button->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KullaniciGeri2Button->Location = System::Drawing::Point(762, 404);
+			this->KullaniciGeri2Button->Name = L"KullaniciGeri2Button";
+			this->KullaniciGeri2Button->Size = System::Drawing::Size(140, 98);
+			this->KullaniciGeri2Button->TabIndex = 22;
+			this->KullaniciGeri2Button->Text = L"Geri";
+			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			this->KullaniciGeri2Button->Click += gcnew System::EventHandler(this, &SubeSorgulamaSayfasi::KullaniciGeri2Button_Click);
+			// 
 			// SubeSorgulamaSayfasi
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(996, 534);
+			this->Controls->Add(this->KullaniciGeri2Button);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->SubeAdresi);
 			this->Controls->Add(this->SubeAdi);
@@ -126,5 +143,8 @@ namespace KargoTakipone {
 			SubeAdresi->Text = read["SubeAdresler"]->ToString();
 		}
 	}
-	};
+	private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+		this->Close();
+	}
+};
 }

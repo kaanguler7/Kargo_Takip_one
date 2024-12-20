@@ -42,6 +42,7 @@ namespace KargoTakipone {
 	private: System::Windows::Forms::Button^ SubeSorgulamaButton;
 	private: System::Windows::Forms::Button^ KargoTakipButton;
 	private: System::ComponentModel::BackgroundWorker^ backgroundWorker1;
+	private: System::Windows::Forms::Button^ KullaniciGeri2Button;
 
 	private:
 		/// <summary>
@@ -62,6 +63,7 @@ namespace KargoTakipone {
 			this->SubeSorgulamaButton = (gcnew System::Windows::Forms::Button());
 			this->KargoTakipButton = (gcnew System::Windows::Forms::Button());
 			this->backgroundWorker1 = (gcnew System::ComponentModel::BackgroundWorker());
+			this->KullaniciGeri2Button = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// KargoIptalButton
@@ -86,6 +88,7 @@ namespace KargoTakipone {
 			this->KuryeCagýrButton->Name = L"KuryeCagýrButton";
 			this->KuryeCagýrButton->Size = System::Drawing::Size(234, 149);
 			this->KuryeCagýrButton->TabIndex = 9;
+			this->KuryeCagýrButton->Text = L"Kurye Çaðýr";
 			this->KuryeCagýrButton->UseVisualStyleBackColor = false;
 			// 
 			// button1
@@ -98,7 +101,7 @@ namespace KargoTakipone {
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(246, 149);
 			this->button1->TabIndex = 8;
-			this->button1->Text = L"Þube Sorgulama";
+			this->button1->Text = L"Gönderi Oluþturma";
 			this->button1->UseVisualStyleBackColor = false;
 			// 
 			// SubeSorgulamaButton
@@ -127,6 +130,21 @@ namespace KargoTakipone {
 			this->KargoTakipButton->TabIndex = 6;
 			this->KargoTakipButton->Text = L"Kargo Takip";
 			this->KargoTakipButton->UseVisualStyleBackColor = false;
+			this->KargoTakipButton->Click += gcnew System::EventHandler(this, &KullaniciSayfasi::KargoTakipButton_Click);
+			// 
+			// KullaniciGeri2Button
+			// 
+			this->KullaniciGeri2Button->BackColor = System::Drawing::Color::DarkCyan;
+			this->KullaniciGeri2Button->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KullaniciGeri2Button->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KullaniciGeri2Button->Location = System::Drawing::Point(692, 304);
+			this->KullaniciGeri2Button->Name = L"KullaniciGeri2Button";
+			this->KullaniciGeri2Button->Size = System::Drawing::Size(246, 149);
+			this->KullaniciGeri2Button->TabIndex = 23;
+			this->KullaniciGeri2Button->Text = L"Geri";
+			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			this->KullaniciGeri2Button->Click += gcnew System::EventHandler(this, &KullaniciSayfasi::KullaniciGeri2Button_Click);
 			// 
 			// KullaniciSayfasi
 			// 
@@ -134,6 +152,7 @@ namespace KargoTakipone {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(996, 534);
+			this->Controls->Add(this->KullaniciGeri2Button);
 			this->Controls->Add(this->KargoIptalButton);
 			this->Controls->Add(this->KuryeCagýrButton);
 			this->Controls->Add(this->button1);
@@ -142,6 +161,7 @@ namespace KargoTakipone {
 			this->Name = L"KullaniciSayfasi";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"KullaniciSayfasi";
+			this->Load += gcnew System::EventHandler(this, &KullaniciSayfasi::KullaniciSayfasi_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -149,7 +169,14 @@ namespace KargoTakipone {
 	private: System::Void SubeSorgulamaButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		SubeSorgulamaSayfasi^ c = gcnew SubeSorgulamaSayfasi();
 		c->Show();
-		this->Hide();
+		
 	}
+private: System::Void KullaniciSayfasi_Load(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
+}
+private: System::Void KargoTakipButton_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

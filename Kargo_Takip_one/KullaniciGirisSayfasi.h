@@ -1,5 +1,8 @@
 #pragma once
 #include "KullaniciSayfasi.h"
+#include "KullaniciKayiý.h"
+
+
 
 namespace KargoTakipone {
 
@@ -44,6 +47,7 @@ namespace KargoTakipone {
 	private: System::Windows::Forms::Label^ MusteriKullaniciAdiLabel;
 	private: System::Windows::Forms::TextBox^ MusteriKullaniciAdiTextBox;
 	private: System::Windows::Forms::Button^ KullaniciGeri2Button;
+	private: System::Windows::Forms::Button^ KullaniciKayit;
 
 
 	private:
@@ -66,6 +70,7 @@ namespace KargoTakipone {
 			this->MusteriKullaniciAdiLabel = (gcnew System::Windows::Forms::Label());
 			this->MusteriKullaniciAdiTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->KullaniciGeri2Button = (gcnew System::Windows::Forms::Button());
+			this->KullaniciKayit = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// MusteriGirisSayfasiButton
@@ -144,6 +149,21 @@ namespace KargoTakipone {
 			this->KullaniciGeri2Button->TabIndex = 21;
 			this->KullaniciGeri2Button->Text = L"Geri";
 			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			this->KullaniciGeri2Button->Click += gcnew System::EventHandler(this, &KullaniciGirisSayfasi::KullaniciGeri2Button_Click);
+			// 
+			// KullaniciKayit
+			// 
+			this->KullaniciKayit->BackColor = System::Drawing::Color::DarkCyan;
+			this->KullaniciKayit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(162)));
+			this->KullaniciKayit->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->KullaniciKayit->Location = System::Drawing::Point(655, 185);
+			this->KullaniciKayit->Name = L"KullaniciKayit";
+			this->KullaniciKayit->Size = System::Drawing::Size(247, 137);
+			this->KullaniciKayit->TabIndex = 22;
+			this->KullaniciKayit->Text = L"Kaydol";
+			this->KullaniciKayit->UseVisualStyleBackColor = false;
+			this->KullaniciKayit->Click += gcnew System::EventHandler(this, &KullaniciGirisSayfasi::KullaniciKayit_Click);
 			// 
 			// KullaniciGirisSayfasi
 			// 
@@ -151,6 +171,7 @@ namespace KargoTakipone {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(996, 534);
+			this->Controls->Add(this->KullaniciKayit);
 			this->Controls->Add(this->KullaniciGeri2Button);
 			this->Controls->Add(this->MusteriGirisSayfasiButton);
 			this->Controls->Add(this->MusteriSifreLabel);
@@ -186,12 +207,18 @@ namespace KargoTakipone {
 			MessageBox::Show("baþarýlý giriþ");
 			KullaniciSayfasi^ form5 = gcnew KullaniciSayfasi();
 			form5->Show();
-			this->Hide();
+			
 		}
 		else
 		{
 			MessageBox::Show("baþarýsýz giriþ");
 		}
 	}
+private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	this->Close();
+}
+private: System::Void KullaniciKayit_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
