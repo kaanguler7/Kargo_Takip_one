@@ -36,6 +36,9 @@
     <ClCompile Include="KullaniciKayitSayfasi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PersonelEkleCikarSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnaSayfa.h">
@@ -57,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="KullaniciKayitSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="PersonelEkleCikarSayfasi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

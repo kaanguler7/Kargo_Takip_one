@@ -1,4 +1,5 @@
 #pragma once
+#include "PersonelEkleCikarSayfasi.h"
 
 namespace KargoTakipone {
 
@@ -143,6 +144,7 @@ namespace KargoTakipone {
 			this->PersonelEkleCýkarButton->TabIndex = 24;
 			this->PersonelEkleCýkarButton->Text = L"Personel Ekle/Çýkar";
 			this->PersonelEkleCýkarButton->UseVisualStyleBackColor = false;
+			this->PersonelEkleCýkarButton->Click += gcnew System::EventHandler(this, &AdminSayfasi::PersonelEkleCýkarButton_Click);
 			// 
 			// AdminSayfasi
 			// 
@@ -163,5 +165,10 @@ namespace KargoTakipone {
 
 		}
 #pragma endregion
-	};
+	private: System::Void PersonelEkleCýkarButton_Click(System::Object^ sender, System::EventArgs^ e) {
+		PersonelEkleCikarSayfasi^ form83 = gcnew PersonelEkleCikarSayfasi();
+		form83->Show();
+		
+	}
+};
 }
