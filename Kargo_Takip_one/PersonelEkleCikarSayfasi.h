@@ -250,5 +250,4 @@ namespace KargoTakipone {
 private: System::Void PersonelEkleButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
 }
-};
 }
