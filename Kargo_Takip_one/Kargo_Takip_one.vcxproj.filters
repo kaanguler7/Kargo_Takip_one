@@ -57,6 +57,9 @@
     <ClCompile Include="ExcelleAktarSayfasi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KargoDurumSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnaSayfa.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ExcelleAktarSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KargoDurumSayfasi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

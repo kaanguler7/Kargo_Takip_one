@@ -2,6 +2,7 @@
 #include "PersonelEkleCikarSayfasi.h"
 #include "KargoYonetimSayfasi.h"
 #include "RaporlamaSayfasi.h"
+#include "KargoDurumSayfasi.h"
 #include <msclr/marshal.h>
 #include <msclr/marshal_cppstd.h>
 
@@ -46,8 +47,10 @@ namespace KargoTakipone {
 	protected:
 	private: System::Windows::Forms::Button^ KargoIptalButton;
 	private: System::Windows::Forms::Button^ RaporlamaButton;
-
 	private: System::Windows::Forms::Button^ MusteriYonetim;
+
+
+
 
 	private: System::Windows::Forms::Button^ KargoYonetimButton;
 
@@ -87,6 +90,7 @@ namespace KargoTakipone {
 			this->KullaniciGeri2Button->TabIndex = 29;
 			this->KullaniciGeri2Button->Text = L"Geri";
 			this->KullaniciGeri2Button->UseVisualStyleBackColor = false;
+			this->KullaniciGeri2Button->Click += gcnew System::EventHandler(this, &AdminSayfasi::KullaniciGeri2Button_Click);
 			// 
 			// KargoIptalButton
 			// 
@@ -98,7 +102,7 @@ namespace KargoTakipone {
 			this->KargoIptalButton->Name = L"KargoIptalButton";
 			this->KargoIptalButton->Size = System::Drawing::Size(245, 149);
 			this->KargoIptalButton->TabIndex = 28;
-			this->KargoIptalButton->Text = L"Excelle Aktar";
+			this->KargoIptalButton->Text = L"Adres Yazdýr";
 			this->KargoIptalButton->UseVisualStyleBackColor = false;
 			this->KargoIptalButton->Click += gcnew System::EventHandler(this, &AdminSayfasi::KargoIptalButton_Click);
 			// 
@@ -126,7 +130,7 @@ namespace KargoTakipone {
 			this->MusteriYonetim->Name = L"MusteriYonetim";
 			this->MusteriYonetim->Size = System::Drawing::Size(246, 149);
 			this->MusteriYonetim->TabIndex = 26;
-			this->MusteriYonetim->Text = L"Müþteri Yönetimi";
+			this->MusteriYonetim->Text = L"Kargo Durum";
 			this->MusteriYonetim->UseVisualStyleBackColor = false;
 			this->MusteriYonetim->Click += gcnew System::EventHandler(this, &AdminSayfasi::MusteriYonetim_Click);
 			// 
@@ -195,6 +199,12 @@ private: System::Void KargoIptalButton_Click(System::Object^ sender, System::Eve
 	form123->Show();
 }
 private: System::Void MusteriYonetim_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+		KargoDurumSayfasi^ form223 = gcnew KargoDurumSayfasi();
+	form223->Show();
+}
+private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

@@ -127,6 +127,7 @@
     <ClCompile Include="AnaSayfa.cpp" />
     <ClCompile Include="ExcelleAktarSayfasi.cpp" />
     <ClCompile Include="GonderiOlusturmaSayfasi.cpp" />
+    <ClCompile Include="KargoDurumSayfasi.cpp" />
     <ClCompile Include="KargoTakipSayfasi.cpp" />
     <ClCompile Include="KargoYonetimSayfasi.cpp" />
     <ClCompile Include="KullaniciGirisSayfasi.cpp" />
@@ -151,6 +152,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="GonderiOlusturmaSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="KargoDurumSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="KargoTakipSayfasi.h">
@@ -196,6 +200,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GonderiOlusturmaSayfasi.resx">
       <DependentUpon>GonderiOlusturmaSayfasi.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KargoDurumSayfasi.resx">
+      <DependentUpon>KargoDurumSayfasi.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KargoTakipSayfasi.resx">
       <DependentUpon>KargoTakipSayfasi.h</DependentUpon>

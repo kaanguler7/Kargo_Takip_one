@@ -119,7 +119,7 @@ namespace KargoTakipone {
 	private: System::Void AdminGirisButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		AdminGirisSayfasi^ a = gcnew AdminGirisSayfasi();
 		a->Show();
-		this->Hide();
+		
 	}
 	private: System::Void KullaniciGirisButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		KullaniciGirisSayfasi^ b = gcnew KullaniciGirisSayfasi();

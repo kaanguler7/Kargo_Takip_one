@@ -197,6 +197,7 @@ namespace KargoTakipone {
 private: System::Void AdminGirisSayfasi_Load(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void AdminGeri2Button_Click(System::Object^ sender, System::EventArgs^ e) {
+	this->Close();
 }
 };
 }

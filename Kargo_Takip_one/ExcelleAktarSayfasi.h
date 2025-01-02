@@ -12,6 +12,7 @@ namespace KargoTakipone {
 	using namespace System::Data::SqlClient;
 	
 	using namespace System::Reflection;
+	using namespace System::Drawing::Printing;
 	
      
 
@@ -52,7 +53,8 @@ namespace KargoTakipone {
 
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Button^ button1;
+	private: System::Windows::Forms::Button^ YazdirButton;
+
 
 	private:
 		/// <summary>
@@ -74,7 +76,7 @@ namespace KargoTakipone {
 			this->BaslangýcExcelTarih = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->YazdirButton = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -146,18 +148,19 @@ namespace KargoTakipone {
 			this->label1->TabIndex = 97;
 			this->label1->Text = L"Baþlangýç";
 			// 
-			// button1
+			// YazdirButton
 			// 
-			this->button1->BackColor = System::Drawing::Color::DarkCyan;
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->YazdirButton->BackColor = System::Drawing::Color::DarkCyan;
+			this->YazdirButton->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(162)));
-			this->button1->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->button1->Location = System::Drawing::Point(346, 463);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(347, 59);
-			this->button1->TabIndex = 104;
-			this->button1->Text = L"Excelle Aktar";
-			this->button1->UseVisualStyleBackColor = false;
+			this->YazdirButton->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			this->YazdirButton->Location = System::Drawing::Point(346, 463);
+			this->YazdirButton->Name = L"YazdirButton";
+			this->YazdirButton->Size = System::Drawing::Size(347, 59);
+			this->YazdirButton->TabIndex = 104;
+			this->YazdirButton->Text = L"Yazdýr";
+			this->YazdirButton->UseVisualStyleBackColor = false;
+			this->YazdirButton->Click += gcnew System::EventHandler(this, &ExcelleAktarSayfasi::YazdirButton_Click);
 			// 
 			// ExcelleAktarSayfasi
 			// 
@@ -165,7 +168,7 @@ namespace KargoTakipone {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::GradientActiveCaption;
 			this->ClientSize = System::Drawing::Size(1015, 534);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->YazdirButton);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->TarihBulExcelButton);
@@ -222,6 +225,55 @@ namespace KargoTakipone {
 	}
 private: System::Void ExcelleAktarSayfasi_Load(System::Object^ sender, System::EventArgs^ e) {
 	
+}
+private: System::Void YazdirButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	PrintDocument^ printDocument = gcnew PrintDocument();
+	printDocument->PrintPage += gcnew PrintPageEventHandler(this, &ExcelleAktarSayfasi::PrintDocument_PrintPage);
+
+	PrintPreviewDialog^ printPreviewDialog = gcnew PrintPreviewDialog();
+	printPreviewDialog->Document = printDocument;
+
+	// Yazdýrma önizleme ekranýný göster
+	printPreviewDialog->ShowDialog();
+}
+
+private: System::Void PrintDocument_PrintPage(System::Object^ sender, PrintPageEventArgs^ e) {
+	// Baþlangýç pozisyonu
+	int yPosition = 0;
+	int xPosition = 10;
+	int lineHeight = 30;
+
+	// DataGridView baþlýklarýný yazdýr
+	for (int col = 0; col < dataGridView1->Columns->Count; col++) {
+		String^ headerText = dataGridView1->Columns[col]->HeaderText;
+		e->Graphics->DrawString(headerText, gcnew System::Drawing::Font("Arial", 12, FontStyle::Bold), Brushes::Black, xPosition, yPosition);
+		xPosition += 150; // Sütun geniþliði
+	}
+
+	// Baþlýklar altýnda bir çizgi çiz
+	yPosition += lineHeight;
+	e->Graphics->DrawLine(Pens::Black, 10, yPosition, e->PageBounds.Width - 10, yPosition);
+	yPosition += 10; // Çizgiden sonra boþluk
+
+	// DataGridView verilerini yazdýr
+	for (int row = 0; row < dataGridView1->Rows->Count - 1; row++) {
+		xPosition = 10; // Her satýr için baþlangýç pozisyonunu sýfýrla
+		for (int col = 0; col < dataGridView1->Columns->Count; col++) {
+			Object^ cellValue = dataGridView1->Rows[row]->Cells[col]->Value;
+			String^ text = cellValue == nullptr ? "" : cellValue->ToString();
+			e->Graphics->DrawString(text, gcnew System::Drawing::Font("Arial", 10), Brushes::Black, xPosition, yPosition);
+			xPosition += 150; // Sütun geniþliði
+		}
+		yPosition += lineHeight;
+
+		// Sayfa sýnýrýna ulaþýldýysa yazdýrmayý durdur
+		if (yPosition > e->PageBounds.Height - 50) {
+			e->HasMorePages = true;
+			return;
+		}
+	}
+
+	e->HasMorePages = false;
 }
 };
 }
