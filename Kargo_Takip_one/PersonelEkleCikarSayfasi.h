@@ -117,7 +117,6 @@ namespace KargoTakipone {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(162)));
 			this->PersonelKayitSoyadiTextBox->Location = System::Drawing::Point(281, 188);
 			this->PersonelKayitSoyadiTextBox->Name = L"PersonelKayitSoyadiTextBox";
-			this->PersonelKayitSoyadiTextBox->PasswordChar = '*';
 			this->PersonelKayitSoyadiTextBox->Size = System::Drawing::Size(306, 30);
 			this->PersonelKayitSoyadiTextBox->TabIndex = 26;
 			// 
@@ -145,11 +144,11 @@ namespace KargoTakipone {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Impact", 42, System::Drawing::FontStyle::Bold));
-			this->label2->Location = System::Drawing::Point(266, 9);
+			this->label2->Location = System::Drawing::Point(144, 5);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(482, 85);
+			this->label2->Size = System::Drawing::Size(660, 85);
 			this->label2->TabIndex = 23;
-			this->label2->Text = L"KULLANCI KAYIT";
+			this->label2->Text = L"PERSONEL EKLE/ÇIKAR";
 			// 
 			// label1
 			// 
@@ -168,7 +167,6 @@ namespace KargoTakipone {
 				static_cast<System::Byte>(162)));
 			this->PersonelYasiTextBox->Location = System::Drawing::Point(281, 265);
 			this->PersonelYasiTextBox->Name = L"PersonelYasiTextBox";
-			this->PersonelYasiTextBox->PasswordChar = '*';
 			this->PersonelYasiTextBox->Size = System::Drawing::Size(306, 30);
 			this->PersonelYasiTextBox->TabIndex = 30;
 			// 
@@ -217,6 +215,7 @@ namespace KargoTakipone {
 			this->PersonelCikarButton->TabIndex = 34;
 			this->PersonelCikarButton->Text = L"Çýkar";
 			this->PersonelCikarButton->UseVisualStyleBackColor = false;
+			this->PersonelCikarButton->Click += gcnew System::EventHandler(this, &PersonelEkleCikarSayfasi::PersonelCikarButton_Click);
 			// 
 			// PersonelEkleCikarSayfasi
 			// 
@@ -247,7 +246,110 @@ namespace KargoTakipone {
 	private: System::Void PersonelGeriButton_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
-private: System::Void PersonelEkleButton_Click(System::Object^ sender, System::EventArgs^ e) {
+private: System::Void PersonelEkleButton_Click(System::Object^ sender, System::EventArgs^ e) { // TextBox'lardan alýnan personel bilgileri
+	String^ ad = this->PersonelKayitAdiTextBox->Text;
+	String^ soyad = this->PersonelKayitSoyadiTextBox->Text;
+	String^ yas = this->PersonelYasiTextBox->Text;
+	String^ meslek = this->PersonelMeslekcomboBox1->Text;
+
+	// Veritabaný baðlantý dizesi
+	String^ connectionString = "Data Source=localhost;Initial Catalog=Kargo_Takip;Integrated Security=True";
+
+	try {
+		// Veritabaný baðlantýsýný oluþtur ve aç
+		SqlConnection^ con = gcnew SqlConnection(connectionString);
+		con->Open();
+
+		// Parametreli sorgu oluþtur
+		String^ sqlQuery = "INSERT INTO Personel_Ekle (Ad, Soyad, Yas, Meslek) VALUES (@Ad, @Soyad, @Yas, @Meslek)";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlQuery, con);
+
+		// Parametreleri sorguya ekle
+		cmd->Parameters->AddWithValue("@Ad", ad);
+		cmd->Parameters->AddWithValue("@Soyad", soyad);
+		cmd->Parameters->AddWithValue("@Yas", yas);
+		cmd->Parameters->AddWithValue("@Meslek", meslek);
+
+		// Sorguyu çalýþtýr
+		cmd->ExecuteNonQuery();
+
+		// TextBox'larý temizle
+		this->PersonelKayitAdiTextBox->Text = "";
+		this->PersonelKayitSoyadiTextBox->Text = "";
+		this->PersonelYasiTextBox->Text = "";
+		this->PersonelMeslekcomboBox1->Text = "";
+
+		// Kullanýcýya baþarý mesajý göster
+		MessageBox::Show("Personel baþarýyla eklendi!");
+
+		// Veritabaný baðlantýsýný kapat
+		con->Close();
+	}
+	catch (Exception^ ex) {
+		// Hata durumunda kullanýcýyý bilgilendir
+		MessageBox::Show("Bir hata oluþtu: " + ex->Message);
+	}
 
 }
+private: System::Void PersonelCikarButton_Click(System::Object^ sender, System::EventArgs^ e) {// Kullanýcýdan alýnan Ad ve Soyad bilgileri
+	String^ ad = this->PersonelKayitAdiTextBox->Text;
+	String^ soyad = this->PersonelKayitSoyadiTextBox->Text;
+
+	// Veritabaný baðlantý dizesi
+	String^ connectionString = "Data Source=localhost;Initial Catalog=Kargo_Takip;Integrated Security=True";
+
+	try {
+		// Veritabaný baðlantýsýný oluþtur ve aç
+		SqlConnection^ con = gcnew SqlConnection(connectionString);
+		con->Open();
+
+		// Parametreli sorgu ile personel bilgilerini veritabanýndan al
+		String^ sqlQuery = "SELECT Yas, Meslek FROM Personel_Ekle WHERE Ad = @Ad AND Soyad = @Soyad";
+		SqlCommand^ cmd = gcnew SqlCommand(sqlQuery, con);
+
+		// Parametreleri sorguya ekle
+		cmd->Parameters->AddWithValue("@Ad", ad);
+		cmd->Parameters->AddWithValue("@Soyad", soyad);
+
+		// Veriyi çek
+		SqlDataReader^ reader = cmd->ExecuteReader();
+
+		if (reader->Read()) {
+			// Kiþi bulunduysa Yaþ ve Meslek bilgilerini TextBox'lara yaz
+			this->PersonelYasiTextBox->Text = reader->GetString(0);  // Yaþ
+			this->PersonelMeslekcomboBox1->Text = reader->GetString(1);         // Meslek
+
+			// Personeli silmek için ikinci bir sorgu
+			reader->Close();  // Silme iþleminden önce reader'ý kapatýyoruz
+			String^ deleteQuery = "DELETE FROM Personel_Ekle WHERE Ad = @Ad AND Soyad = @Soyad";
+			SqlCommand^ deleteCmd = gcnew SqlCommand(deleteQuery, con);
+			deleteCmd->Parameters->AddWithValue("@Ad", ad);
+			deleteCmd->Parameters->AddWithValue("@Soyad", soyad);
+
+			// Personeli veritabanýndan sil
+			deleteCmd->ExecuteNonQuery();
+
+			// Silme iþlemi baþarýyla tamamlandýktan sonra kullanýcýyý bilgilendir
+			MessageBox::Show("Personel baþarýyla silindi!");
+
+			// Metin kutularýný temizle
+			this->PersonelKayitAdiTextBox->Text = "";
+			this->PersonelKayitSoyadiTextBox->Text = "";
+			this->PersonelYasiTextBox->Text = "";
+			this->PersonelMeslekcomboBox1->Text = "";
+		}
+		else {
+			// Kiþi bulunamazsa kullanýcýya bilgilendirme mesajý
+			MessageBox::Show("Bu isim ve soyadla personel bulunamadý.");
+		}
+
+		// Veritabaný baðlantýsýný kapat
+		con->Close();
+	}
+	catch (Exception^ ex) {
+		// Hata durumunda kullanýcýyý bilgilendir
+		MessageBox::Show("Bir hata oluþtu: " + ex->Message);
+	}
+}
+};
 }

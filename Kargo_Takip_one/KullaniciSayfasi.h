@@ -1,5 +1,9 @@
 #pragma once
 #include "SubeSorgulamaSayfasi.h"
+#include "GonderiOlusturmaSayfasi.h"
+#include "KargoTakipSayfasi.h"
+#include "KuryeCagirSayfasi.h"
+
 
 namespace KargoTakipone {
 
@@ -90,6 +94,7 @@ namespace KargoTakipone {
 			this->KuryeCagýrButton->TabIndex = 9;
 			this->KuryeCagýrButton->Text = L"Kurye Çaðýr";
 			this->KuryeCagýrButton->UseVisualStyleBackColor = false;
+			this->KuryeCagýrButton->Click += gcnew System::EventHandler(this, &KullaniciSayfasi::KuryeCagýrButton_Click);
 			// 
 			// button1
 			// 
@@ -103,6 +108,7 @@ namespace KargoTakipone {
 			this->button1->TabIndex = 8;
 			this->button1->Text = L"Gönderi Oluþturma";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &KullaniciSayfasi::button1_Click);
 			// 
 			// SubeSorgulamaButton
 			// 
@@ -177,6 +183,18 @@ private: System::Void KullaniciGeri2Button_Click(System::Object^ sender, System:
 	this->Close();
 }
 private: System::Void KargoTakipButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	KargoTakipSayfasi^ pi = gcnew KargoTakipSayfasi();
+	pi->Show();
+
+
+}
+private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+	GonderiOlusturmaSayfasi^ sa = gcnew GonderiOlusturmaSayfasi();
+	sa->Show();
+}
+private: System::Void KuryeCagýrButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	KuryeCagirSayfasi^ gs = gcnew KuryeCagirSayfasi();
+	gs->Show();
 }
 };
 }

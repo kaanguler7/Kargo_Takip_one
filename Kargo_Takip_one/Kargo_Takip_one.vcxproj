@@ -125,10 +125,16 @@
     <ClCompile Include="AdminGirisSayfasi.cpp" />
     <ClCompile Include="AdminSayfasi.cpp" />
     <ClCompile Include="AnaSayfa.cpp" />
+    <ClCompile Include="ExcelleAktarSayfasi.cpp" />
+    <ClCompile Include="GonderiOlusturmaSayfasi.cpp" />
+    <ClCompile Include="KargoTakipSayfasi.cpp" />
+    <ClCompile Include="KargoYonetimSayfasi.cpp" />
     <ClCompile Include="KullaniciGirisSayfasi.cpp" />
     <ClCompile Include="KullaniciKayitSayfasi.cpp" />
     <ClCompile Include="KullaniciSayfasi.cpp" />
+    <ClCompile Include="KuryeCagirSayfasi.cpp" />
     <ClCompile Include="PersonelEkleCikarSayfasi.cpp" />
+    <ClCompile Include="RaporlamaSayfasi.cpp" />
     <ClCompile Include="SubeSorgulamaSayfasi.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -141,6 +147,18 @@
     <ClInclude Include="AnaSayfa.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="ExcelleAktarSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="GonderiOlusturmaSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="KargoTakipSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="KargoYonetimSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="KullaniciGirisSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -150,7 +168,13 @@
     <ClInclude Include="KullaniciSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="KuryeCagirSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="PersonelEkleCikarSayfasi.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="RaporlamaSayfasi.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="SubeSorgulamaSayfasi.h">
@@ -167,6 +191,18 @@
     <EmbeddedResource Include="AnaSayfa.resx">
       <DependentUpon>AnaSayfa.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ExcelleAktarSayfasi.resx">
+      <DependentUpon>ExcelleAktarSayfasi.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GonderiOlusturmaSayfasi.resx">
+      <DependentUpon>GonderiOlusturmaSayfasi.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KargoTakipSayfasi.resx">
+      <DependentUpon>KargoTakipSayfasi.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KargoYonetimSayfasi.resx">
+      <DependentUpon>KargoYonetimSayfasi.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="KullaniciGirisSayfasi.resx">
       <DependentUpon>KullaniciGirisSayfasi.h</DependentUpon>
     </EmbeddedResource>
@@ -176,8 +212,14 @@
     <EmbeddedResource Include="KullaniciSayfasi.resx">
       <DependentUpon>KullaniciSayfasi.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="KuryeCagirSayfasi.resx">
+      <DependentUpon>KuryeCagirSayfasi.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="PersonelEkleCikarSayfasi.resx">
       <DependentUpon>PersonelEkleCikarSayfasi.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RaporlamaSayfasi.resx">
+      <DependentUpon>RaporlamaSayfasi.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SubeSorgulamaSayfasi.resx">
       <DependentUpon>SubeSorgulamaSayfasi.h</DependentUpon>

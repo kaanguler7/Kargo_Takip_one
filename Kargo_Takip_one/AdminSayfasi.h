@@ -1,5 +1,12 @@
 #pragma once
 #include "PersonelEkleCikarSayfasi.h"
+#include "KargoYonetimSayfasi.h"
+#include "RaporlamaSayfasi.h"
+#include <msclr/marshal.h>
+#include <msclr/marshal_cppstd.h>
+
+
+#include "ExcelleAktarSayfasi.h"
 
 namespace KargoTakipone {
 
@@ -91,7 +98,9 @@ namespace KargoTakipone {
 			this->KargoIptalButton->Name = L"KargoIptalButton";
 			this->KargoIptalButton->Size = System::Drawing::Size(245, 149);
 			this->KargoIptalButton->TabIndex = 28;
+			this->KargoIptalButton->Text = L"Excelle Aktar";
 			this->KargoIptalButton->UseVisualStyleBackColor = false;
+			this->KargoIptalButton->Click += gcnew System::EventHandler(this, &AdminSayfasi::KargoIptalButton_Click);
 			// 
 			// RaporlamaButton
 			// 
@@ -105,6 +114,7 @@ namespace KargoTakipone {
 			this->RaporlamaButton->TabIndex = 27;
 			this->RaporlamaButton->Text = L"Raporlama";
 			this->RaporlamaButton->UseVisualStyleBackColor = false;
+			this->RaporlamaButton->Click += gcnew System::EventHandler(this, &AdminSayfasi::RaporlamaButton_Click);
 			// 
 			// MusteriYonetim
 			// 
@@ -118,6 +128,7 @@ namespace KargoTakipone {
 			this->MusteriYonetim->TabIndex = 26;
 			this->MusteriYonetim->Text = L"Müþteri Yönetimi";
 			this->MusteriYonetim->UseVisualStyleBackColor = false;
+			this->MusteriYonetim->Click += gcnew System::EventHandler(this, &AdminSayfasi::MusteriYonetim_Click);
 			// 
 			// KargoYonetimButton
 			// 
@@ -131,6 +142,7 @@ namespace KargoTakipone {
 			this->KargoYonetimButton->TabIndex = 25;
 			this->KargoYonetimButton->Text = L"Kargo Yönetimi";
 			this->KargoYonetimButton->UseVisualStyleBackColor = false;
+			this->KargoYonetimButton->Click += gcnew System::EventHandler(this, &AdminSayfasi::KargoYonetimButton_Click);
 			// 
 			// PersonelEkleCýkarButton
 			// 
@@ -170,5 +182,19 @@ namespace KargoTakipone {
 		form83->Show();
 		
 	}
+private: System::Void KargoYonetimButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	KargoYonetimSayfasi^ form103 = gcnew KargoYonetimSayfasi();
+	form103->Show();
+}
+private: System::Void RaporlamaButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	RaporlamaSayfasi^ form113 = gcnew RaporlamaSayfasi();
+	form113->Show();
+}
+private: System::Void KargoIptalButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	ExcelleAktarSayfasi^ form123 = gcnew ExcelleAktarSayfasi();
+	form123->Show();
+}
+private: System::Void MusteriYonetim_Click(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }

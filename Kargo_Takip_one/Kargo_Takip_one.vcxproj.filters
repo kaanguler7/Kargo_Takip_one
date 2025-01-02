@@ -39,6 +39,24 @@
     <ClCompile Include="PersonelEkleCikarSayfasi.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="GonderiOlusturmaSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KargoTakipSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KuryeCagirSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="KargoYonetimSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="RaporlamaSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ExcelleAktarSayfasi.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AnaSayfa.h">
@@ -63,6 +81,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="PersonelEkleCikarSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GonderiOlusturmaSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KargoTakipSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KuryeCagirSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="KargoYonetimSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RaporlamaSayfasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ExcelleAktarSayfasi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
